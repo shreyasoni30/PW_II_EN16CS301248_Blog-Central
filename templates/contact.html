@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+.container{
+    padding-top: 15px;
+}
+#id_name{
+    width: 100%;
+}
+#id_email{
+    width: 100%;
+}
+#id_message{
+    width: 100%;
+}
+</style>
+
+   <div class="container">
+   <br><br><br>
+   <div class="row">
+        <div class="col-md-6">
+           <div class="card">
+               <div class="card-header">
+                   <h1>Contact Details</h1>
+               </div>
+               <div class="card-body">
+                 <h4>
+                    <b> Shreya Barapatre </b>
+                 </h4>
+                   <p>+91 6264602039 <br>
+                   shreyabarapatre@gmail.com</p>
+                   <h4>
+                    <b> Shreya Soni </b>
+                 </h4>
+                   <p>+91 8109475570<br>
+                   shsoni30@gmail.com</p>
+                   <span>
+                       <i>
+                           Feel free to contact us for any feedback or suggestions...<br>
+                           We would ensure fulfilling your requests.
+                       </i>
+                   </span>
+               </div>
+           </div>
+        </div>
+        <div class="col-md-6">
+           <div class="card">
+               <div class="card-header">
+                <h1>Contact Us</h1>
+              </div>
+               <div class="card-body">
+            {% if flag %}
+                <div class="alert alert-success" role="alert">
+                    Your enquiry has been submitted successfully. We shall respond to it shortly....
+                </div>
+            {% else %}
+               <form method="post" style="margin-top: 1.3em;" action="">
+                {% csrf_token %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+
+               {% for field in form.visible_fields %}
+               <div class="form-group">
+                   {{ field.errors }}
+                   <label>{{ field.label_tag }}</label>
+                   <p> {{ field }}</p>
+               </div>
+
+               {% endfor %}
+                <button type="reset" class="btn btn-primary" style="margin-left: 15%">Reset</button>
+               <button type="submit" class="btn btn-primary">Submit</button>
+               </form>
+            {% endif %}
+            </div>
+            </div>
+        </div>
+   </div>
+
+
+
+
+   </div>
+{% endblock content %}

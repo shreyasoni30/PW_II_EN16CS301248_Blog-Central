@@ -1,0 +1,23 @@
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+}
+
+
+.btn-danger {
+    color: #fff;
+    background-color: #f00000;
+    border-color: #dc281e;
+}
+
+.masthead {
+    background: #3398E1;
+    height: auto;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    box-shadow: 0 0 0 0;
+}
+
+.card {
+    box-shadow: 0 0 0 0;
+}
